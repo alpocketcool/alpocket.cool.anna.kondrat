@@ -286,8 +286,27 @@
           alt="QR — zapisz kontakt" loading="lazy">
       </div>
       <div class="qr-note">Zeskanuj aparatem — kontakt trafi prosto do książki adresowej.</div>
+      <a id="vcf-btn" download="Anna_Kondrat_NoProblem.vcf" class="btn btn-p" style="margin-top:1rem;width:100%;">↓&nbsp; ZAPISZ KONTAKT</a>
     </div>
   </div>
+
+  <script>
+    (function(){
+      var vcard = "BEGIN:VCARD\r\n" +
+        "VERSION:3.0\r\n" +
+        "FN:Anna Kondrat\r\n" +
+        "ORG:Agencja Ubezpieczeniowa No Problem\r\n" +
+        "TITLE:Doradca Klienta ds. Finansow\r\n" +
+        "TEL;TYPE=CELL:+48884891798\r\n" +
+        "EMAIL:biuro@ubezpieczenianoproblem.pl\r\n" +
+        "ADR:;;Trawniki 628;Trawniki;;21-044;PL\r\n" +
+        "URL:https://ubezpieczenianoproblem.pl\r\n" +
+        "END:VCARD\r\n";
+      var blob = new Blob([vcard], { type: "text/vcard;charset=utf-8" });
+      var url = URL.createObjectURL(blob);
+      document.getElementById('vcf-btn').setAttribute('href', url);
+    })();
+  </script>
 
   <!-- LINK DO LANDINGU -->
   <div style="padding:0 2rem;margin-top:1.4rem;">
